@@ -1,10 +1,15 @@
-This should identify all module inter-dependencies on our system, create a
-graph structure out of that, and maybe even visualise that graph. Mostly for
-fun, but this could be useful if we ever wish to *replace* one module with
-another completely or identify modules affected by a severe vulnerability.
+# Environment module manager
+This is for managing and inspecting Linux [environment
+modules](https://modules.readthedocs.io/en/latest/). The exact feature set is
+currently undecided, but this might be used to:
+- Identify all modules that depend on some other module, or conversely identify all modules that a module depends on.
+- Identify a valid order in which to rebuild a subset of modules, e.g. to backport a security-patched module.
+- Produce an image of the network of all modules and their dependences.
+- Identify modules that do not load or unload correctly.
+
 
 ## Setup
-You should have conda configured already. Create the environment with
+You should have [conda](https://conda.io/projects/conda/en/latest/index.html) configured already. Create the environment with
 
 ```console
 $ mamba env create --file=environment.yml --name=environment-module-manager
